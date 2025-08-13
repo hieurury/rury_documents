@@ -1,0 +1,55 @@
+[
+    {
+        "name": {
+            "en": "Javascript methods",
+            "vi": "Phương thức Javascript"
+        },
+        "description": {
+            "en": "Learn about different methods in Javascript.",
+            "vi": "Tìm hiểu về các phương thức khác nhau trong Javascript."
+        },
+        "path": "jsmt",
+        "logo": "/imgs/js-logo.svg",
+        "color": "orange"
+
+    },
+    {
+        "name": {
+            "en": "Javascript basic",
+            "vi": "Cơ bản về Javascript"
+        },
+        "description": {
+            "en": "An introduction to basic concepts in Javascript.",
+            "vi": "Giới thiệu về các khái niệm cơ bản trong Javascript."
+        },
+        "path": "jsb",
+        "logo": "/imgs/js-logo.svg",
+        "color": "orange"
+    },
+    {
+        "name": {
+            "en": "HTML basic",
+            "vi": "Cơ bản về HTML"
+        },
+        "description": {
+            "en": "An introduction to basic concepts in HTML.",
+            "vi": "Giới thiệu về các khái niệm cơ bản trong HTML."
+        },
+        "path": "htmlb",
+        "logo": "/imgs/html-logo.svg",
+        "color": "#eb7134"
+    },
+    {
+        "name": {
+            "en": "CSS basic",
+            "vi": "Cơ bản về CSS"
+        },
+        "description": {
+            "en": "An introduction to basic concepts in CSS.",
+            "vi": "Giới thiệu về các khái niệm cơ bản trong CSS."
+        },
+        "path": "cssb",
+        "logo": "/imgs/css-logo.svg",
+        "color": "#34b4eb"
+    }
+]

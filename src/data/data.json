@@ -1,0 +1,22 @@
+{
+    "jsmt": {
+        "name": {
+            "vi": "Phương thức Javascript",
+            "en": "Javascript methods"
+        },
+        "id": "jsmt",
+        "data": [
+            {
+                "title": {
+                    "vi": "Phương thức mảng cơ bản",
+                    "en": "Array methods basics"
+                },
+                "description": {
+                    "vi": "Tìm hiểu về forEach, map, filter.",
+                    "en": "Learn about forEach, map, filter."
+                },
+                "path": "array_1"
+            }
+        ]
+    }
+}

@@ -1,0 +1,67 @@
+@import "https://fonts.googleapis.com/css2?family=Big+Shoulders:opsz,wght@10..72,100..900&family=Cabin:ital,wght@0,400..700;1,400..700&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap";
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+@import "flowbite/src/themes/default";
+@plugin "flowbite/plugin";
+@source "../node_modules/flowbite";
+
+
+* {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+@layer base {
+  #markdown-container h1 {
+    @apply text-4xl font-bold m-2;
+    @apply dark:text-gray-300
+  }
+  #markdown-container h2 {
+    @apply border-b-1 font-semibold p-2 text-3xl flex my-2 items-center space-x-1
+  }
+  #markdown-container h2 img {
+    @apply mx-2
+  }
+  #markdown-container h3 {
+    @apply text-2xl font-semibold my-2 after:ml-2 hover:after:content-['#'] transition-all duration-200 ease-in-out
+  }
+  #markdown-container img {
+    @apply max-w-full h-auto object-contain
+  }
+
+  #markdown-container li {
+    @apply list-disc ml-5 my-1
+  }
+
+  #markdown-container blockquote {
+    @apply border-l-4 pl-4 italic dark:text-gray-400 my-3 dark:bg-slate-600 bg-gray-200 text-gray-600 py-2 border-orange-500
+  }
+
+  #markdown-container p {
+    @apply my-2
+  }
+
+  #markdown-container pre {
+    @apply relative sm:text-sm rounded-lg overflow-x-auto my-3 shadow-md
+  }
+
+  #markdown-container code {
+    @apply rounded-md shadow p-0.5 px-1 bg-slate-700 text-gray-300
+  }
+
+  #markdown-container pre button {
+    @apply absolute opacity-0 top-2 right-2 bg-gray-800 text-white text-xs rounded px-2 py-1 cursor-pointer;
+  }
+
+  #markdown-container pre:hover button {
+    @apply opacity-100 transition-opacity duration-200;
+  }
+  #markdown-container :not(pre) > code {
+    @apply rounded-md px-1 py-0.5 bg-slate-200 text-slate-800 dark:bg-slate-800 dark:text-slate-200;
+  }
+
+  /* Để hljs quyết định màu cho code block */
+  #markdown-container pre code {
+    @apply bg-transparent text-inherit shadow-none p-0 text-sm;
+  }
+
+}
