@@ -24,6 +24,9 @@
   #markdown-container h3 {
     @apply text-2xl font-semibold my-2 after:ml-2 hover:after:content-['#'] transition-all duration-200 ease-in-out
   }
+  #markdown-container h3 img {
+    @apply mx-2
+  }
   #markdown-container img {
     @apply max-w-full h-auto object-contain
   }
@@ -64,4 +67,38 @@
     @apply bg-transparent text-inherit shadow-none p-0 text-sm;
   }
 
+  #markdown-container table {
+    display: block;              /* responsive scroll giống GitHub */
+    max-width: 100%;
+    overflow-x: auto;
+    border-collapse: separate;
+    border-spacing: 0;
+    @apply my-4 text-sm;
+  }
+  #markdown-container thead th {
+    @apply bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200;
+  }
+  #markdown-container th,
+  #markdown-container td {
+    @apply px-3 py-2 border border-slate-200 dark:border-slate-600 align-top;
+    white-space: nowrap;         /* tránh vỡ bảng; bỏ nếu muốn tự xuống dòng */
+  }
+  /* Bo góc bảng */
+  #markdown-container table thead tr:first-child th:first-child { border-top-left-radius: .5rem; }
+  #markdown-container table thead tr:first-child th:last-child  { border-top-right-radius: .5rem; }
+  #markdown-container table tbody tr:last-child td:first-child  { border-bottom-left-radius: .5rem; }
+  #markdown-container table tbody tr:last-child td:last-child   { border-bottom-right-radius: .5rem; }
+
+  /* Zebra rows */
+  #markdown-container tbody tr:nth-child(even) {
+    @apply bg-slate-50 dark:bg-slate-700/60;
+  }
+
+  /* Cho phép xuống dòng trong ô nếu cần (bật dòng dưới và bỏ white-space: nowrap ở trên) */
+  /* #markdown-container th, #markdown-container td { white-space: normal; } */
+
+  /* Giữ code trong ô gọn gàng */
+  #markdown-container td code {
+    @apply bg-slate-200 dark:bg-slate-800 dark:text-slate-200 px-1 py-0.5 rounded;
+  }
 }

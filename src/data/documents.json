@@ -10,7 +10,12 @@
         },
         "path": "jsmt",
         "logo": "/imgs/js-logo.svg",
-        "color": "orange"
+        "color": "orange",
+        "author": {
+            "name": "hieurury",
+            "email": "hieurury007@gmail.com"
+        },
+        "status": "ongoing"
 
     },
     {
@@ -24,7 +29,12 @@
         },
         "path": "jsb",
         "logo": "/imgs/js-logo.svg",
-        "color": "orange"
+        "color": "orange",
+        "author": {
+            "name": "hieurury",
+            "email": "hieurury007@gmail.com"
+        },
+        "status": "ongoing"
     },
     {
         "name": {
@@ -37,7 +47,12 @@
         },
         "path": "htmlb",
         "logo": "/imgs/html-logo.svg",
-        "color": "#eb7134"
+        "color": "#eb7134",
+        "author": {
+            "name": "hieurury",
+            "email": "hieurury007@gmail.com"
+        },
+        "status": "comming soon"
     },
     {
         "name": {
@@ -50,6 +65,11 @@
         },
         "path": "cssb",
         "logo": "/imgs/css-logo.svg",
-        "color": "#34b4eb"
+        "color": "#34b4eb",
+        "author": {
+            "name": "hieurury",
+            "email": "hieurury007@gmail.com"
+        },
+        "status": "comming soon"
     }
 ]

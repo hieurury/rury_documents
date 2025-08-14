@@ -9,6 +9,8 @@
                     :path="`/documents/${item.path}`"
                     :logo="item.logo"
                     :color="item.color"
+                    :author="item.author"
+                    :countDoc="data[item.path]?.data?.length || 0"
                 />
             </li>
         </ul>
@@ -18,6 +20,7 @@
 <script setup>
 import { onMounted, ref } from 'vue';
 import documents from '../data/documents.json';
+import data from '../data/data.json';
 import Card from '../components/Card.vue';
 import { lang } from '../composable/useLang';
 

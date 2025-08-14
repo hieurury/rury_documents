@@ -18,5 +18,25 @@
                 "path": "array_1"
             }
         ]
+    },
+    "jsb": {
+        "name": {
+            "vi": "Cơ bản về Javascript",
+            "en": "Javascript basics"
+        },
+        "id": "jsb",
+        "data": [
+            {
+                "title": {
+                    "vi": "Cơ bản về Object",
+                    "en": "Object basics"
+                },
+                "description": {
+                    "vi": "Tìm hiểu về Object trong Javascript.",
+                    "en": "Learn about Object in Javascript."
+                },
+                "path": "object_1"
+            }
+        ]
     }
 }
