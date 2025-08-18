@@ -3,7 +3,7 @@
         <span class="absolute w-10 h-10 -top-2 -right-2 rounded-full overflow-hidden">
             <img class="w-full h-full object-cover" :src="logo || '/imgs/default-logo.svg'" alt="">
         </span>
-        <h3 class="text-2xl dark:text-gray-700 border-l-2 pl-2 border-slate-500 min-h-16 max-h-24 flex items-center font-semibold">{{ title }}</h3>
+        <h3 class="text-2xl text-gray-100 dark:text-gray-700 border-l-2 pl-2 border-slate-500 min-h-16 max-h-24 flex items-center font-semibold">{{ title }}</h3>
         <p class="text-sm my-2 p-1 rounded text-gray-700 italic before:content-['>'] before:mr-2 before:text-orange-500
             dark:bg-gray-400 min-h-12 max-h-16">{{ description }}
         </p>

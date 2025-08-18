@@ -19,68 +19,45 @@ import { lang } from '../composable/useLang'
 
 
 const props = defineProps({
-  html: {
-    type: String,
-    default: `<!doctype html>
-    <html>
-      <head>
-        <meta charset="utf-8" />
-        <title>Playground</title>
-        <link rel="stylesheet" href="style.css" />
-      </head>
-      <body>
-        <h1>Hi, there! Nice to meet you!</h1>
-        <div id="app"></div>
-      </body>
-    </html>`
+  files: {
+    type: Object,
+    default: () => ({
+      'index.html': `<div id="app">Hello there!</div>`,
+      'style.css': `body { font-family: system-ui; padding: 16px; } h1 { color: #f97316; }`,
+      'index.js': `import './style.css'; const app = document.getElementById('app'); app.innerText = 'Welcome to RuryDocs!';`
+    })
   },
-  css: {
+  lang: {
     type: String,
-    default: `
-    body {
-      font-family: system-ui;
-      padding: 16px;
-    }
-    h1 {
-      color: #f97316;
-    }`
+    default: 'javascript'
   },
-  js: {
-    type: String,
-    default: `
-    const app = document.getElementById('app')
-    app.innerText = 'Welcome to RuryDocs!'
-    `
-  }
 })
 
 const container = ref(null)
 const loading = ref(true)
-let vm // StackBlitz VM
+let vm //máy ảo của stackBlitz
 
-// Nội dung mặc định (có thể nhận qua props)
 onMounted(async () => {
+  console.log(Object.keys(props.files));
   try {
     vm = await sdk.embedProject(
       container.value,
       {
         title: 'RuryDocs Playground',
         description: 'Editable JS playground',
-        template: 'javascript',        // hoặc 'node' | 'vite' | 'angular' | 'vue'
+        template: props.lang,
         files: {
-          'index.html': props.html,
-          'index.js': props.js,
-          'style.css': props.css,
+          ...props.files
         },
       },
       {
         height: 520,
-        openFile: ['style.css,index.html,index.js'], //này đúng rồi
-        hideExplorer: true,
+        hideExplorer: false,
         hideNavigation: true,
         view: 'both',
       }
     )
+    await vm.editor.openFile(Object.keys(props.files).join(','))
   } finally {
     loading.value = false
   }
@@ -97,5 +74,4 @@ onMounted(async () => {
 </script>
 
 <style scoped>
-/* ...existing code... */
 </style>

@@ -11,7 +11,7 @@
                 <ul class="lg:flex hidden justify-center items-center space-x-4">
                     <li><a href="/" class="dark:text-gray-300">{{ lang == 'vi' ? 'Trang chủ' : 'Home' }}</a></li>
                     <li><a href="/documents" class="dark:text-gray-300">{{ lang == 'vi' ? 'Tài liệu' : 'Documents' }}</a></li>
-                    <li><a href="#" class="dark:text-gray-300">{{ lang == 'vi' ? 'Liên hệ' : 'Contact' }}</a></li>
+                    <li><a href="/compiler" class="dark:text-gray-300">{{ lang == 'vi' ? 'Biên dịch' : 'Compiler' }}</a></li>
                 </ul>
                 <div class="flex items-center space-x-4 border-l-2 pl-2 dark:border-gray-600">
                     <button @click="toggleLang">
@@ -42,20 +42,28 @@
         <ul class="lg:hidden flex py-2 border-t-1 border-gray-500 justify-center items-center space-x-4">
             <li><router-link to="/" class="dark:text-gray-300">{{ lang == 'vi' ? 'Trang chủ' : 'Home' }}</router-link></li>
             <li><router-link to="/documents" class="dark:text-gray-300">{{ lang == 'vi' ? 'Tài liệu' : 'Documents' }}</router-link></li>
-            <li><router-link to="#" class="dark:text-gray-300">{{ lang == 'vi' ? 'Liên hệ' : 'Contact' }}</router-link></li>
+            <li><router-link to="/compiler" class="dark:text-gray-300">{{ lang == 'vi' ? 'Biên dịch' : 'Compiler' }}</router-link></li>
         </ul>
     </header>
     <main class="lg:px-[10%] dark:bg-gray-700 min-h-screen">
         <router-view></router-view>
     </main>
-    <footer></footer>
+    <footer>
+        <div class="bg-gray-800 text-white py-4 text-center">
+            <p class="text-sm">{{ lang === 'vi' ? `© ${currentYear} RuryDocs. Quyền được bảo lưu bởi hieurury.` : `© ${currentYear} RuryDocs. All rights reserved by hieurury.` }}</p>
+            <p class="text-xs my-2">{{ lang === 'vi' ? 'Được thực hiện bởi Hiếu Võ (hieurury)' : 'Made by Hiếu Võ (hieurury)' }}</p>
+            <p class="text-xs my-2">❤️❤️❤️</p>
+        </div>
+    </footer>
 </template>
 
 <script setup>
 import { onMounted, ref } from 'vue';
-
 import { lang, toggleLang } from '../composable/useLang';
 import { isDark, toggleTheme } from '../composable/useTheme';
+
+
+const currentYear = new Date().getFullYear();
 </script>
 
 <style scoped>

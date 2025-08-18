@@ -1,10 +1,12 @@
 import { createWebHistory, createRouter } from "vue-router";
 
 import MainLayout from "../layouts/MainLayout.vue";
+import NoneLayout from "../layouts/NoneLayout.vue";
 import Home from "../pages/Home.vue";
 import Documents from "../pages/Documents.vue";
 import DocumentDetail from "../pages/DocumentDetail.vue";
 import MarkDown from "../pages/MarkDown.vue";
+import Compiler from "../pages/Compiler.vue";
 
 const routes = [
   {
@@ -47,6 +49,18 @@ const routes = [
             component: DocumentDetail,
         }
         
+    ],
+  },
+  {
+    path: "/compiler",
+    name: "Compiler",
+    component: NoneLayout,
+    children: [
+      {
+        path: "",
+        name: "CompilerPage",
+        component: Compiler,
+      },
     ],
   }
 ];
