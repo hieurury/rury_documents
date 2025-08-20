@@ -38,5 +38,25 @@
                 "path": "object_1"
             }
         ]
+    },
+    "jsfn": {
+        "name": {
+            "vi": "Javascript thiếu nhi",
+            "en": "Javascript for newbies"
+        },
+        "id": "jsfn",
+        "data": [
+            {
+                "title": {
+                    "vi": "Làm việc với Object Constructor",
+                    "en": "Working with Object Constructor"
+                },
+                "description": {
+                    "vi": "Xử lí dữ liệu có cấu trúc với Object Constructor trong Javascript.",
+                    "en": "Handling structured data with Object Constructor in Javascript."
+                },
+                "path": "code_7"
+            }
+        ]
     }
 }

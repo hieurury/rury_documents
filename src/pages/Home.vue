@@ -1,5 +1,5 @@
 <template>
-    <div class="lg:py-8">
+    <div class="lg:py-8 lg:px-[10%]">
         <div class="flex min-h-screen">
             <Notify 
                 class="w-full"
@@ -43,7 +43,7 @@
         <div class="min-h-screen flex items-center justify-center flex-col lg:p-0 p-4">
             <h1 class="text-4xl dark:text-gray-300 uppercase font-semibold my-2 border-b-2 border-gray-300 py-2 w-full text-center">{{ lang === 'vi' ? 'Tích hợp trình biên dịch' : 'Embed Compiler' }}</h1>
             <!-- <EmbedCompilerJS /> -->
-             <EmbedCompiler class="w-full" />
+             <EmbedCompiler class="w-full" :ready="true" />
         </div>
 
         <div class="min-h-screen lg:px-0  flex items-center justify-center flex-col lg:p-0 p-4">

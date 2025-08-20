@@ -13,9 +13,10 @@
 </template>
 
 <script setup>
-import { ref, onMounted, defineProps } from 'vue'
+import { ref, onMounted, defineProps, watch, computed } from 'vue'
 import sdk from '@stackblitz/sdk'
 import { lang } from '../composable/useLang'
+import { isDark } from '../composable/useTheme'
 
 
 const props = defineProps({
@@ -31,37 +32,63 @@ const props = defineProps({
     type: String,
     default: 'javascript'
   },
+  action: {
+    type: String,
+    default: ''
+  },
+  ready: {
+    type: Boolean,
+    default: false
+  },
+  height: {
+    type: Number,
+    default: 520
+  }
 })
-
+const embedTheme = computed(() => (isDark.value ? 'dark' : 'light'))
 const container = ref(null)
 const loading = ref(true)
 let vm //máy ảo của stackBlitz
 
 onMounted(async () => {
-  console.log(Object.keys(props.files));
+  createVm();
+})
+
+const createVm = async () => {
+  if(!props.ready || !container.value) {
+    loading.value = true;
+  }
+
+  container.value.innerHTML = '';
+
   try {
-    vm = await sdk.embedProject(
-      container.value,
-      {
-        title: 'RuryDocs Playground',
-        description: 'Editable JS playground',
-        template: props.lang,
-        files: {
-          ...props.files
+    if(props.ready) {
+      vm = await sdk.embedProject(
+        container.value,
+        {
+          title: 'RuryDocs Playground',
+          description: 'Editable JS playground',
+          template: props.lang,
+          files: {
+            ...props.files
+          },
         },
-      },
-      {
-        height: 520,
-        hideExplorer: false,
-        hideNavigation: true,
-        view: 'both',
-      }
-    )
-    await vm.editor.openFile(Object.keys(props.files).join(','))
+        {
+          height: props.height,
+          hideExplorer: true,
+          hideNavigation: true,
+          theme: embedTheme.value,
+          view: 'both',
+        }
+      )
+      await vm.editor.openFile(props.action || Object.keys(props.files).join(','))
+    } else {
+      container.value.innerHTML = `<h1 class="text-center text-gray-300">${props.lang === 'vi' ? 'Đang tải trình biên dịch...' : 'Loading Compiler...'}</h1>`
+    }
   } finally {
     loading.value = false
   }
-})
+}
 
 // Ví dụ cập nhật nội dung sau này
 // async function setCode(newJs) {
@@ -71,6 +98,15 @@ onMounted(async () => {
 //     destroy: []
 //   })
 // }
+
+watch(
+  () => [props.ready, props.lang, props.files, props.action, embedTheme.value],
+  async () => {
+    if (!container.value) return
+    await createVm();
+  },
+  { deep: true }
+)
 </script>
 
 <style scoped>

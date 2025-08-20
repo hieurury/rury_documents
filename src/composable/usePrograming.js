@@ -183,7 +183,6 @@ a.router-link-active { text-decoration: underline; }
 main { line-height: 1.5; }
 `
     },
-    // Mở sẵn các tab chính (bạn đang split(',') trong code)
     action: 'src/App.vue,src/main.js,src/pages/Home.vue,src/pages/About.vue,vite.config.js'
   },
   node: {

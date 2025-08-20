@@ -1,5 +1,5 @@
 <template>
-  <header class="dark:bg-slate-800 py-6 shadow-md">
+  <header class="dark:bg-slate-800 py-6 shadow-md border-b-2 border-gray-300">
     <nav class="flex justify-between items-center px-4">
       <div class="flex items-center justify-between">
         <div class="flex justify-center items-center text-lg font-semibold dark:text-slate-300 group">
@@ -53,7 +53,7 @@
         <div v-if="!selectedLanguage" class="lg:px-[10%] py-4">
             <h1 class="lg:text-4xl text-2xl uppercase my-4 font-semibold dark:text-slate-300">{{ lang === 'vi' ? 'Trình biên dịch tích hợp' : 'Integrated Compiler' }}</h1>
             <h3 class="lg:text-2xl text-lg my-2 font-semibold dark:text-slate-300">{{ lang === 'vi' ? 'Chọn loại ngôn ngữ bắt đầu' : 'Select a programming language to start' }}</h3>
-            <div class="grid lg:grid-cols-2 grid-cols-1 gap-2">
+            <div class="grid lg:grid-cols-2 grid-cols-1 gap-2 border-t-2 pt-4 border-gray-300">
                 <button class="text-lg hover:scale-105 transition-all duration-100 cursor-pointer uppercase font-bold tracking-wider text-gray-700 min-h-36 px-4 py-2 border rounded bg-contain bg-amber-300 bg-no-repeat bg-[url('/imgs/js-logo.svg')]" @click="setLang('javascript')">JavaScript</button>
                 <button class="text-lg hover:scale-105 transition-all duration-100 cursor-pointer uppercase font-bold tracking-wider text-gray-700 min-h-36 px-4 py-2 border rounded bg-amber-600 bg-contain bg-no-repeat bg-[url('/imgs/html-logo.svg')]" @click="setLang('html')">HTML</button>
                 <button class="text-lg hover:scale-105 transition-all duration-100 cursor-pointer uppercase font-bold tracking-wider text-gray-700 min-h-36 px-4 py-2 border rounded bg-sky-500 bg-contain bg-no-repeat bg-[url('/imgs/css-logo.svg')]" @click="setLang('css')">CSS</button>
@@ -66,7 +66,7 @@
             <div class="col-span-1"></div>
             <div v-if="loading && selectedLanguage" class="absolute inset-0 flex flex-col items-center justify-center bg-white/70 dark:bg-gray-800/70 z-10">
                 <span class="loader"></span>
-                <span class="text-lg text-gray-100">{{ lang === 'vi' ? 'Đang dựng trình biên dịch...' : 'Building compiler...' }}</span>
+                <span class="text-lg dark:text-gray-300">{{ lang === 'vi' ? 'Đang dựng trình biên dịch...' : 'Building compiler...' }}</span>
             </div>
         </div>
     </div>
@@ -74,7 +74,6 @@
 
 <script setup>
 import { ref, watch, nextTick } from 'vue';
-import EmbedCompiler from '../components/EmbedCompiler.vue';
 import sdk from '@stackblitz/sdk'
 import { lang, toggleLang } from '../composable/useLang';
 import { isDark, toggleTheme } from '../composable/useTheme';
@@ -120,7 +119,7 @@ const loadCompiler = async (language) => {
             {
                 height: 720,
                 hideExplorer: false,
-                hideNavigation: true,
+                hideNavigation: false,
                 view: 'both',
             }
         )

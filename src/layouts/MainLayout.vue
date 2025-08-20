@@ -45,7 +45,7 @@
             <li><router-link to="/compiler" class="dark:text-gray-300">{{ lang == 'vi' ? 'Biên dịch' : 'Compiler' }}</router-link></li>
         </ul>
     </header>
-    <main class="lg:px-[10%] dark:bg-gray-700 min-h-screen">
+    <main class=" dark:bg-gray-700 min-h-screen">
         <router-view></router-view>
     </main>
     <footer>

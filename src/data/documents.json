@@ -15,6 +15,7 @@
             "name": "hieurury",
             "email": "hieurury007@gmail.com"
         },
+        "type": "documents",
         "status": "ongoing"
 
     },
@@ -34,6 +35,7 @@
             "name": "hieurury",
             "email": "hieurury007@gmail.com"
         },
+        "type": "documents",
         "status": "ongoing"
     },
     {
@@ -52,6 +54,7 @@
             "name": "hieurury",
             "email": "hieurury007@gmail.com"
         },
+        "type": "documents",
         "status": "comming soon"
     },
     {
@@ -70,6 +73,26 @@
             "name": "hieurury",
             "email": "hieurury007@gmail.com"
         },
+        "type": "documents",
         "status": "comming soon"
+    },
+    {
+        "name": {
+            "en": "Javascript for newbies",
+            "vi": "Javascript thiếu nhi"
+        },
+        "description": {
+            "en": "A collection of fun and educational Javascript challenges for newbies",
+            "vi": "Thử thách giải các bài toán Javascript về .... đủ thứ loại."
+        },
+        "path": "jsfn",
+        "logo": "/imgs/js-logo.svg",
+        "color": "orange",
+        "author": {
+            "name": "hieurury",
+            "email": "hieurury007@gmail.com"
+        },
+        "type": "practice",
+        "status": "ongoing"
     }
 ]
