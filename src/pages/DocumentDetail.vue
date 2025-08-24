@@ -13,8 +13,8 @@
     <div v-else class="py-8 lg:px-[10%] px-8">
         <h1 class="text-4xl uppercase dark:text-gray-300 border-b-2 pb-1 font-semibold my-4">{{ document.name[lang] }}</h1>
         <h3 class="text-2xl flex items-center before:animate-ping dark:text-gray-400 font-semibold my-2">{{ lang === 'vi' ? 'Các tài liệu hiện có' : 'Available documents' }}</h3>
-        <ul>
-            <li v-for="item in document.data" :key="item.title">
+        <ul class="grid lg:grid-cols-2 sm:grid-cols-1 gap-2">
+            <li class="" v-for="item in document.data" :key="item.title">
                 <Card 
                     :title="item.title[lang]"
                     :description="item.description[lang]"

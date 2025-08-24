@@ -28,6 +28,17 @@
         "data": [
             {
                 "title": {
+                    "vi": "Các phương thức khai báo",
+                    "en": "Declaration methods"
+                },
+                "description": {
+                    "vi": "Sự khác biệt giữa các phương thức let, const và var trong JS.",
+                    "en": "Learn about the differences between let, const, and var in JS."
+                },
+                "path": "declaration_methods"
+            },
+            {
+                "title": {
                     "vi": "Cơ bản về Object",
                     "en": "Object basics"
                 },
@@ -36,6 +47,17 @@
                     "en": "Learn about Object in Javascript."
                 },
                 "path": "object_1"
+            },
+            {
+                "title": {
+                    "vi": "Object Constructor",
+                    "en": "Object Constructor"
+                },
+                "description": {
+                    "vi": "Tìm hiểu về Object Constructor trong Javascript.",
+                    "en": "Learn about Object Constructor in Javascript."
+                },
+                "path": "object_2"
             }
         ]
     },

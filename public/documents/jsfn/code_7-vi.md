@@ -5,7 +5,7 @@
 ### Cho một constructor quản lí người dùng như sau
 
 ```javascript
-    const User = (name, email, age, password) {
+    const User = (name, email, age, password) => {
         this.name = name;
         this.email = email;
         this.age = age;
@@ -98,7 +98,7 @@ Cho dữ liệu đầu ra theo dạng
         {
             email: 'test1@gmail.com'
             status: 'success'
-            account: new User();
+            account: User {name, email, age, password};
         },
         {
             email: 'test2@gmail.com',

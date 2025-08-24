@@ -184,4 +184,124 @@ Hãy thay bằng `<tên_dữ_liệu>[<tên_biến>]` nếu dùng một biến đ
 
 ### 2.B Thêm thuộc tính mới vào ![Add](https://img.shields.io/badge/Add-Object-orange)
 
-***SẮP SOẠN***
+Để thêm một trường mới vào cho Object ta có có pháp tương tự như cách truy xuất dữ liệu.
+
+**cú pháp**: `<Object>.<tên_key> = <value>`
+
+**Hoặc**: `<Object>[<tên_biến>] = <value>`
+
+VÍ DỤ
+
+Để thêm trường email cho Object ta có cú pháp sau:
+
+```javascript
+    const data = {
+        name: 'hieurury',
+        age: 22
+    }
+
+    data.email = 'hieurury007@gmail.com';
+    //hoặc
+    data['email'] = 'hieurury007@gmail.com';
+    //HOĂCCCCCCCCCCCC
+    const newKey = 'email';
+    data[newKey] = 'hieurury007@gmail.com';
+```
+
+Tất cả điều cho kết quả giống nhau.
+
+> Mẹo: để xem Object theo kiểu bảng, có thể sử dụng cú pháp `console.table(<tên_object>)`
+
+
+### 2.C Thay đổi dữ liệu cho một trường đã có ![Update](https://img.shields.io/badge/Update-Object-green)
+
+Để thay đổi dữ liệu đã có trong một trường ta truy xuất để trường đó và gán dữ liệu mới như bình thường.
+
+***LẤY VÍ DỤ**
+
+```javascript
+    const cat = {
+        name: 'peter',
+        age: 4,
+        gender: 'male'
+    }
+
+    //đổi tuổi theo cách 1
+    cat.age = 3;
+    //đổi name theo cách 2
+    cat['name'] = 'dog';
+    //đổi giới tính theo cách 3;
+    const key = 'gender';
+    cat[key] = 'female';
+```
+
+> Lưu ý: Đối với các `key` chưa có thì có nghĩa là thêm vào, `key` có rồi thì có nghĩa là sửa.
+
+
+### 2.D Xoá một key đã tồn tại ![Delete](https://img.shields.io/badge/Delete-Object-red)
+
+Để xoá một trường đã tồn tại ta có cú pháp `delete` dùng cho Object;
+
+```javascript
+    const dog = {
+        name: 'yoy';
+        age: 8
+    }
+
+    //để xoá tên ta dùng
+    delete dog.name;
+    //hoặc
+    delete dog['name'];
+    //HOĂCCCC
+    const key = 'name';
+    delete dog[key];
+```
+
+Để xoá toàn bộ Object thì đơn giản nhất là gán nó bằng rỗng là được
+
+`<tên_object> = {}`
+
+
+### 2.E Truy cập và các key trong object nâng cao ![Access](https://img.shields.io/badge/Access-Object-pink)
+
+Đôi khi ta muốn truy cập vào tất cả các trường trong object trong một lần nhưng việc truy xuất từng trường bằng `key` sẽ rất khó khăn vì không phải lúc nào ta cũng biết số lượng `key` và các `key` có tên là gì.
+
+Để giải quyết vấn đề đó ta có một phương thức `Object.keys(<tên_object>)`
+
+Phương thức trên sẽ trả về 1 mảng chứa các `key` của Object
+
+```javascript
+    const data = {
+        name: 'hieurury',
+        email: 'hieurury007@gmail.com',
+        age: 22,
+        address: 'VN'
+    }
+
+    const object_keys = Object.keys(data);
+    console.log(object_key); //['name', 'emai', 'age', 'address']
+```
+
+Theo logic đó ta có thể sử dụng `forEach` để trích xuất các `key` hoặc hơn nữa là truy xuất dữ liệu của toàn bộ Object
+
+
+```javascript
+    const data = {
+        name: 'hieurury',
+        email: 'hieurury007@gmail.com',
+        age: 22,
+        address: 'VN'
+    }
+
+    const object_keys = Object.keys(data);
+    
+    object_keys.forEach(key => {
+        console.log(key); //in ra từng key
+        console.log(data[key]) //in ra dữ liệu của từng key
+    })
+```
+
+## 3. Kết luận
+
+- `Object` là một dạng dữ liệu linh hoạt trong `javascript` tuy nhiên nó sẽ có nhiều vấn đề về ràng buộc. Các phương thức `sửa` và `xoá` có phương thức khá tương đồng làm cho việc thay đổi dữ liệu của object đôi khi có phần nguy hiểm đến cấu trúc tổng thể.
+- Để giải quyết vấn đề đó ta có một dạng cấu trúc tên là `Object Constructor` [Xem ngay](/markdown/jsb/object_2)

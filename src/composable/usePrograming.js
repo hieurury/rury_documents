@@ -22,7 +22,7 @@ const programingConfig = {
         action: 'index.html'
     },
     css: {
-        lang: 'html',
+        lang: 'javascript',
         files: {
             // index.html
             'index.html': `<!DOCTYPE html>

@@ -21,7 +21,7 @@
     id="markdown-container" 
     :class="[
       {
-        'max-h-[720px] overflow-y-auto': layout[0] === 'both'
+        'max-h-[720px] overflow-y-auto': layout[0] === 'both' && markdownType === 'practice',
       },
       'container dark:bg-gray-700 dark:text-slate-300 px-4 py-12 shadow'
     ]">

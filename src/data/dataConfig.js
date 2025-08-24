@@ -47,6 +47,18 @@ const peoples = [
         email: '123.edu.vn',
         age: 72,
         password: 'dichuacauco'
+    },
+    {
+        name: 'Facker',
+        email: 'test4@gmail.com',
+        age: 18,
+        password: '6aq2g'
+    },
+    {
+        name: 'Anh ba báo',
+        email: 'test4@gmail.com',
+        age: 12,
+        password: '444444'
     }
 ]
 
@@ -55,7 +67,7 @@ const peoples = [
 //     {
 //         email: 'test1@gmail.com'
 //         status: 'success'
-//         account: new User();
+//         account: User {name, email, age, password};
 //     },
 //     {
 //         email: 'test2@gmail.com',
