@@ -97,14 +97,14 @@
     },
     {
         "name": {
-            "en": "Small knowledge about DOM",
-            "vi": "Một chút xíu DOM"
+            "en": "A bit of 'Project'",
+            "vi": "Một chút xíu 'Dự án'"
         },
         "description": {
-            "en": "A collection of fun and educational DOM challenges for newbies",
-            "vi": "Thử thách giải các bài toán DOM về .... đủ thứ loại."
+            "en": "Create a few small projects to work deeper with javascript using basic logic.",
+            "vi": "Tạo một vài dự án nhỏ đủ để làm việc sâu hơn với javascript bằng các logic cơ bản."
         },
-        "path": "domb",
+        "path": "pjb",
         "logo": "/imgs/js-logo.svg",
         "color": "orange",
         "author": {

@@ -92,23 +92,23 @@
             }
         ]
     },
-    "domb": {
+    "pjb": {
         "name": {
-            "vi": "Một chút xíu DOM",
-            "en": "Small knowledge about DOM"
+            "vi": "Một chút xíu 'Dự án'",
+            "en": "A bit of 'Project'"
         },
-        "id": "domb",
+        "id": "pjb",
         "data": [
             {
                 "title": {
-                    "vi": "DOM 4 | Tạo một con BOT đơn giản",
-                    "en": "DOM 4 |Create a simple BOT"
+                    "vi": "Project 01 | Tạo một con BOT đơn giản",
+                    "en": "Project 01 | Create a simple BOT"
                 },
                 "description": {
                     "vi": "Cùng tạo một con BOT đơn giản để trả lời câu hỏi cho khách hàng của một shop nhỏ.",
                     "en": "Create a simple BOT to answer questions for customers of a small shop."
                 },
-                "path": "dom_4"
+                "path": "project_01"
             }
         ]
     }
