@@ -1,5 +1,5 @@
 <template>
-    <header class="flex flex-col bg-white dark:bg-gray-800 shadow-md px-[10%]">
+    <header class="flex flex-col bg-white text-slate-800 dark:bg-gray-800 shadow-md px-[10%]">
         <nav class="flex items-center justify-between p-4">
             <div class="flex items-center lg:space-x-4 space-x-2">
                 <span class="lg:w-16 lg:h-16 w-8 h-8 block rounded-full bg-orange-300 overflow-hidden">
@@ -49,7 +49,7 @@
         <router-view></router-view>
     </main>
     <footer>
-        <div class="bg-gray-800 text-white py-4 text-center">
+        <div class="bg-white dark:bg-gray-800 dark:text-gray-300 text-gray-800 shadow py-4 text-center">
             <p class="text-sm">{{ lang === 'vi' ? `© ${currentYear} RuryDocs. Quyền được bảo lưu bởi hieurury.` : `© ${currentYear} RuryDocs. All rights reserved by hieurury.` }}</p>
             <p class="text-xs my-2">{{ lang === 'vi' ? 'Được thực hiện bởi Hiếu Võ (hieurury)' : 'Made by Hiếu Võ (hieurury)' }}</p>
             <p class="text-xs my-2">❤️❤️❤️</p>

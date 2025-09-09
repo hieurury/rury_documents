@@ -94,5 +94,24 @@
         },
         "type": "practice",
         "status": "ongoing"
+    },
+    {
+        "name": {
+            "en": "Small knowledge about DOM",
+            "vi": "Một chút xíu DOM"
+        },
+        "description": {
+            "en": "A collection of fun and educational DOM challenges for newbies",
+            "vi": "Thử thách giải các bài toán DOM về .... đủ thứ loại."
+        },
+        "path": "domb",
+        "logo": "/imgs/js-logo.svg",
+        "color": "orange",
+        "author": {
+            "name": "hieurury",
+            "email": "hieurury007@gmail.com"
+        },
+        "type": "documents",
+        "status": "ongoing"
     }
 ]

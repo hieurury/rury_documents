@@ -1,5 +1,5 @@
 <template>
-  <header class="dark:bg-slate-800 py-6 shadow-md border-b-2 border-gray-300">
+  <header class="dark:bg-slate-800 bg-white text-gray-800 py-6 shadow-md border-b-2 border-gray-300">
     <nav class="flex justify-between items-center px-4">
       <div class="flex items-center justify-between">
         <div class="flex justify-center items-center text-lg font-semibold dark:text-slate-300 group">
@@ -49,7 +49,7 @@
       </div>
     </nav>
   </header>
-    <div class="dark:bg-slate-800 min-h-screen lg:px-0 px-4">
+    <div class="dark:bg-slate-800 bg-white text-gray-800 min-h-screen lg:px-0 px-4">
         <div v-if="!selectedLanguage" class="lg:px-[10%] py-4">
             <h1 class="lg:text-4xl text-2xl uppercase my-4 font-semibold dark:text-slate-300">{{ lang === 'vi' ? 'Trình biên dịch tích hợp' : 'Integrated Compiler' }}</h1>
             <h3 class="lg:text-2xl text-lg my-2 font-semibold dark:text-slate-300">{{ lang === 'vi' ? 'Chọn loại ngôn ngữ bắt đầu' : 'Select a programming language to start' }}</h3>
@@ -65,7 +65,7 @@
             <div :id="containerId" class="lg:col-span-3 col-span-4"></div>
             <div class="col-span-1"></div>
             <div v-if="loading && selectedLanguage" class="absolute inset-0 flex flex-col items-center justify-center bg-white/70 dark:bg-gray-800/70 z-10">
-                <span class="loader"></span>
+                <Loader />
                 <span class="text-lg dark:text-gray-300">{{ lang === 'vi' ? 'Đang dựng trình biên dịch...' : 'Building compiler...' }}</span>
             </div>
         </div>
@@ -78,6 +78,7 @@ import sdk from '@stackblitz/sdk'
 import { lang, toggleLang } from '../composable/useLang';
 import { isDark, toggleTheme } from '../composable/useTheme';
 import { programingConfig } from '../composable/usePrograming';
+import Loader from '../components/Loader.vue';
 
 
 const selectedLanguage = ref(null);
@@ -139,83 +140,5 @@ watch(selectedLanguage, (newLang) => {
 </script>
 
 <style scoped>
-.loader {
-  width: 48px;
-  height: 48px;
-  display: inline-block;
-  position: relative;
-  transform: rotate(45deg);
-}
-.loader::before {
-  content: '';  
-  box-sizing: border-box;
-  width: 24px;
-  height: 24px;
-  position: absolute;
-  left: 0;
-  top: -24px;
-  animation: animloader 4s ease infinite;
-}
-.loader::after {
-  content: '';  
-  box-sizing: border-box;
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 24px;
-  height: 24px;
-  background: rgba(255, 255, 255, 0.85);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-  animation: animloader2 2s ease infinite;
-}
-
-@keyframes animloader {
-  0% {
-    box-shadow: 0 24px rgba(255, 255, 255, 0), 24px 24px rgba(255, 255, 255, 0), 24px 48px rgba(255, 255, 255, 0), 0px 48px rgba(255, 255, 255, 0);
-  }
-  12% {
-    box-shadow: 0 24px orangered, 24px 24px rgba(255, 255, 255, 0), 24px 48px rgba(255, 255, 255, 0), 0px 48px rgba(255, 255, 255, 0);
-  }
-  25% {
-    box-shadow: 0 24px orangered, 24px 24px orangered, 24px 48px rgba(255, 255, 255, 0), 0px 48px rgba(255, 255, 255, 0);
-  }
-  37% {
-    box-shadow: 0 24px orangered, 24px 24px orangered, 24px 48px orangered, 0px 48px rgba(255, 255, 255, 0);
-  }
-  50% {
-    box-shadow: 0 24px orangered, 24px 24px orangered, 24px 48px orangered, 0px 48px orangered;
-  }
-  62% {
-    box-shadow: 0 24px rgba(255, 255, 255, 0), 24px 24px orangered, 24px 48px orangered, 0px 48px white;
-  }
-  75% {
-    box-shadow: 0 24px rgba(255, 255, 255, 0), 24px 24px rgba(255, 255, 255, 0), 24px 48px white, 0px 48px white;
-  }
-  87% {
-    box-shadow: 0 24px rgba(255, 255, 255, 0), 24px 24px rgba(255, 255, 255, 0), 24px 48px rgba(255, 255, 255, 0), 0px 48px white;
-  }
-  100% {
-    box-shadow: 0 24px rgba(255, 255, 255, 0), 24px 24px rgba(255, 255, 255, 0), 24px 48px rgba(255, 255, 255, 0), 0px 48px rgba(255, 255, 255, 0);
-  }
-}
-
-@keyframes animloader2 {
-  0% {
-    transform: translate(0, 0) rotateX(0) rotateY(0);
-  }
-  25% {
-    transform: translate(100%, 0) rotateX(0) rotateY(180deg);
-  }
-  50% {
-    transform: translate(100%, 100%) rotateX(-180deg) rotateY(180deg);
-  }
-  75% {
-    transform: translate(0, 100%) rotateX(-180deg) rotateY(360deg);
-  }
-  100% {
-    transform: translate(0, 0) rotateX(0) rotateY(360deg);
-  }
-}
-    
 
 </style>

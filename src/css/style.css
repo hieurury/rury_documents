@@ -52,7 +52,7 @@
   }
 
   #markdown-container code {
-    @apply rounded-md shadow p-0.5 px-1 bg-slate-700 text-gray-300
+    @apply rounded-md max-h-96 shadow p-0.5 px-1 bg-slate-700 text-gray-300
   }
 
   #markdown-container pre button {

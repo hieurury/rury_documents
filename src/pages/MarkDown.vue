@@ -1,10 +1,13 @@
 <template>
-  <div :class="[
+  <div class="min-h-screen flex justify-center items-center" v-if="loading">
+    <Loader/>
+  </div>
+  <div v-else :class="[
     {
-      'lg:grid-cols-2 grid-row-2 gap-4 p-2': markdownType === 'practice' && layout[0] === 'both',
-      'grid-cols-1 lg:px-[10%] p-2': markdownType === 'practice' && layout[0] !== 'both',
+      'grid lg:grid-cols-2 grid-row-2 gap-4 p-2': markdownType === 'practice' && layout[0] === 'both',
+      'grid grid-cols-1 lg:px-[10%] p-2': markdownType === 'practice' && layout[0] !== 'both',
       'lg:px-[10%]': markdownType !== 'practice'
-    }, 'grid'
+    }, 'bg-white text-gray-800 dark:bg-gray-700'
   ]">
     <div v-show="markdownType === 'practice' && (layout[0] === 'compiler' || layout[0] === 'both')"
     class="">
@@ -16,6 +19,7 @@
       :action="programmingConfig?.action"
       :height="720" />
     </div>
+    <!-- content -->
     <div 
     v-show="layout[0] === 'markdown' || layout[0] === 'both'" 
     id="markdown-container" 
@@ -55,7 +59,9 @@ import { useRoute } from 'vue-router'
 import { lang } from '../composable/useLang'
 import documents from '../data/documents.json'
 import {dataConfig} from '../data/dataConfig.js'
+import Loader from '../components/Loader.vue'
 
+const loading = ref(true)
 const route = useRoute()
 const layout = ref(['both', 'compiler', 'markdown'])
 const markdownContent = ref('')
@@ -66,7 +72,8 @@ const compilerReady = ref(false)
 
 onMounted(async () => {
     await initMarkdown(lang.value);
-    await initPrograming();
+    if(markdownType.value === 'practice')
+      await initPrograming();
 })
 
 const changeLayout = () => {
@@ -90,7 +97,11 @@ const initPrograming = async () => {
 }
 
 const loadMarkdown = async (url) => {
+
+  loading.value = true;
   const response = await axios.get(url);
+  loading.value = false;
+
   console.log(marked(response.data));
   markdownContent.value = marked(response.data);
   await nextTick();
@@ -108,7 +119,6 @@ const loadMarkdown = async (url) => {
     block.parentElement.appendChild(copyBtn);
   })
 }
-
 
 watch(() => isDark.value, (newValue) => {
   if (newValue) {
